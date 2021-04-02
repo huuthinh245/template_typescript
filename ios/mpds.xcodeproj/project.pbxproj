@@ -13,6 +13,7 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		7A51E153E9FB16638121FBF1 /* libPods-mpds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 161E7FB7CDAF72B433890C90 /* libPods-mpds.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		8AEE3D072616BB380003130D /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 8AEE3D062616BB380003130D /* Config.xcconfig */; };
 		CECF5533F29128F31FE41244 /* libPods-mpds-mpdsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4603BFB0A367E59AFCEAD9D8 /* libPods-mpds-mpdsTests.a */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +41,7 @@
 		2C3D27B0D33CF1B3525E1660 /* Pods-mpds-mpdsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mpds-mpdsTests.release.xcconfig"; path = "Target Support Files/Pods-mpds-mpdsTests/Pods-mpds-mpdsTests.release.xcconfig"; sourceTree = "<group>"; };
 		4603BFB0A367E59AFCEAD9D8 /* libPods-mpds-mpdsTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-mpds-mpdsTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = mpds/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8AEE3D062616BB380003130D /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		90A2C64B158B712BB7DBF929 /* Pods-mpds.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mpds.release.xcconfig"; path = "Target Support Files/Pods-mpds/Pods-mpds.release.xcconfig"; sourceTree = "<group>"; };
 		BE525BCCA19BF1350513C7C5 /* Pods-mpds-mpdsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mpds-mpdsTests.debug.xcconfig"; path = "Target Support Files/Pods-mpds-mpdsTests/Pods-mpds-mpdsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BFFA6498B9CE8BDB963D0142 /* Pods-mpds.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mpds.debug.xcconfig"; path = "Target Support Files/Pods-mpds/Pods-mpds.debug.xcconfig"; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				8AEE3D062616BB380003130D /* Config.xcconfig */,
 				13B07FAE1A68108700A75B9A /* mpds */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* mpdsTests */,
@@ -243,6 +246,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
+				8AEE3D072616BB380003130D /* Config.xcconfig in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -529,6 +533,7 @@
 		};
 		83CBBA201A601CBA00E9B192 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8AEE3D062616BB380003130D /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
@@ -594,6 +599,7 @@
 		};
 		83CBBA211A601CBA00E9B192 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8AEE3D062616BB380003130D /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
