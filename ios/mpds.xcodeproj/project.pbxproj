@@ -11,6 +11,10 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		253BF0D6264A8EE1004A8AB2 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 253BEFF9264A8EB2004A8AB2 /* SystemConfiguration.framework */; };
+		259D78622628372B00FBA189 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259D78612628372B00FBA189 /* Test.swift */; };
+		259D78682628380700FBA189 /* TestBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 259D78672628380700FBA189 /* TestBridge.m */; };
+		259D787A2628420000FBA189 /* Check.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259D78792628420000FBA189 /* Check.swift */; };
 		7A51E153E9FB16638121FBF1 /* libPods-mpds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 161E7FB7CDAF72B433890C90 /* libPods-mpds.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		8AEE3D072616BB380003130D /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 8AEE3D062616BB380003130D /* Config.xcconfig */; };
@@ -38,6 +42,11 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = mpds/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = mpds/main.m; sourceTree = "<group>"; };
 		161E7FB7CDAF72B433890C90 /* libPods-mpds.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-mpds.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		253BEFF9264A8EB2004A8AB2 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		259D78602628372B00FBA189 /* mpds-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "mpds-Bridging-Header.h"; sourceTree = "<group>"; };
+		259D78612628372B00FBA189 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		259D78672628380700FBA189 /* TestBridge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestBridge.m; sourceTree = "<group>"; };
+		259D78792628420000FBA189 /* Check.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Check.swift; sourceTree = "<group>"; };
 		2C3D27B0D33CF1B3525E1660 /* Pods-mpds-mpdsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mpds-mpdsTests.release.xcconfig"; path = "Target Support Files/Pods-mpds-mpdsTests/Pods-mpds-mpdsTests.release.xcconfig"; sourceTree = "<group>"; };
 		4603BFB0A367E59AFCEAD9D8 /* libPods-mpds-mpdsTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-mpds-mpdsTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = mpds/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -61,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				253BF0D6264A8EE1004A8AB2 /* SystemConfiguration.framework in Frameworks */,
 				7A51E153E9FB16638121FBF1 /* libPods-mpds.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -88,6 +98,7 @@
 		13B07FAE1A68108700A75B9A /* mpds */ = {
 			isa = PBXGroup;
 			children = (
+				259D785F2628370700FBA189 /* NativeModule */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -109,9 +120,21 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		259D785F2628370700FBA189 /* NativeModule */ = {
+			isa = PBXGroup;
+			children = (
+				259D78612628372B00FBA189 /* Test.swift */,
+				259D78602628372B00FBA189 /* mpds-Bridging-Header.h */,
+				259D78672628380700FBA189 /* TestBridge.m */,
+				259D78792628420000FBA189 /* Check.swift */,
+			);
+			name = NativeModule;
+			sourceTree = "<group>";
+		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				253BEFF9264A8EB2004A8AB2 /* SystemConfiguration.framework */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				161E7FB7CDAF72B433890C90 /* libPods-mpds.a */,
 				4603BFB0A367E59AFCEAD9D8 /* libPods-mpds-mpdsTests.a */,
@@ -210,7 +233,7 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						LastSwiftMigration = 1120;
+						LastSwiftMigration = 1240;
 					};
 				};
 			};
@@ -414,8 +437,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				259D78682628380700FBA189 /* TestBridge.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
+				259D787A2628420000FBA189 /* Check.swift in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				259D78622628372B00FBA189 /* Test.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,6 +460,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BE525BCCA19BF1350513C7C5 /* Pods-mpds-mpdsTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -461,6 +488,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2C3D27B0D33CF1B3525E1660 /* Pods-mpds-mpdsTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = mpdsTests/Info.plist;
@@ -470,6 +498,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -487,12 +516,24 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = mpds/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+					"-framework",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/PrinterSDK.framework",
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -501,6 +542,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = mpds;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "mpds-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -514,11 +557,22 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = mpds/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+					"-framework",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/PrinterSDK.framework",
+				);
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -526,6 +580,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = mpds;
+				SWIFT_OBJC_BRIDGING_HEADER = "mpds-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -594,6 +649,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Debug;
 		};
