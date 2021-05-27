@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Text, View,TouchableOpacity, FlatList, StyleSheet, Alert, NativeModules } from 'react-native';
 import { StackScreenProps } from '@react-navigation/stack';
 import useStateSafe from '../../hook/useStateSafe';
-import SwipeOut from '../../component/SwipeOut';
+import SwipeOut from '../../components/swipeout';
 import { IRootState } from '../../stores';
 import { HomeScreenParam } from 'screens';
 import { actions } from '../../stores/Trip';

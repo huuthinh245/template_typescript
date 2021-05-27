@@ -11,7 +11,7 @@ import { IRootState } from '../../stores';
 import ShareVariables from '../../utils/ShareVariables';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Config from 'react-native-config';
-import ActionSheet from '../../component/ActionSheet'
+import ActionSheet from '../../components/actionsheet'
 const deviceId = DeviceInfo ? DeviceInfo.getUniqueId() : '1E7BDB3E-02BF-44EA-AADA-00A3A6A1B69A' 
 
 const evn = Config.EVN;
