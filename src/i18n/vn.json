@@ -2,7 +2,7 @@
   "common": {
     "ok": "OK!",
     "cancel": "Cancel",
-    "back": "Back"
+    "back": "Trở về"
   },
   "errors": {
     "invalidEmail": "Invalid email address."

@@ -8,7 +8,7 @@
     "invalidEmail": "Invalid email address."
   },
   "welcomeScreen": {
-    "helloWorld": "Xin chào",
+    "helloWorld": "Hello world",
     "readyForLaunch": "Ready for launch.",
     "continue": "CONTINUE"
   }

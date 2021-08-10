@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react';
 import useIsComponentMounted from './useIsComponentMounted';
-export default function usetStateSafe <P extends object | boolean>(initialValue:  P) {
+export  function useStateSafe <P extends object | boolean>(initialValue:  P) {
 
   const isComponentMounted = useIsComponentMounted();
   const [state, setState] = useState(initialValue);

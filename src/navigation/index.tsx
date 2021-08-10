@@ -1,29 +1,51 @@
 import * as React from 'react';
+import { View, Text } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { NavigationContainer, NavigationState } from '@react-navigation/native';
 import { CardStyleInterpolators, createStackNavigator } from '@react-navigation/stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { navigationRef } from './RootNavigation'
 import HomeScreen from '../container/HomeScreen';
 import LoginScreen from '../container/LoginScreen';
 import SplashScreen from '../container/SplashScreen'
+import ProfileScreen from '../container/ProfileScreen'
 import  stores from '../stores'
 import { Provider } from 'react-redux';
-import { RootStackParamList } from 'screens';
+import { BottomTabParamList, RootStackParamList } from 'screens';
 
-// @ts-ignore
-global.XMLHttpRequest = global.originalXMLHttpRequest ? global.originalXMLHttpRequest: global.XMLHttpRequest
-// @ts-ignore
-global.FormData = global.originalFormData ? global.originalFormData : global.FormData
-fetch
-// @ts-ignore
-if (window.__FETCH_SUPPORT__) {
-// @ts-ignore
-  window.__FETCH_SUPPORT__.blob = false
-} else {
-  // @ts-ignore
-  global.Blob = global.originalBlob ? global.originalBlob : global.Blob
-  // @ts-ignore
-  global.FileReader = global.originalFileReader ? global.originalFileReader: global.FileReader
+// // @ts-ignore
+// global.XMLHttpRequest = global.originalXMLHttpRequest ? global.originalXMLHttpRequest: global.XMLHttpRequest
+// // @ts-ignore
+// global.FormData = global.originalFormData ? global.originalFormData : global.FormData
+// fetch
+// // @ts-ignore
+// if (window.__FETCH_SUPPORT__) {
+// // @ts-ignore
+//   window.__FETCH_SUPPORT__.blob = false
+// } else {
+//   // @ts-ignore
+//   global.Blob = global.originalBlob ? global.originalBlob : global.Blob
+//   // @ts-ignore
+//   global.FileReader = global.originalFileReader ? global.originalFileReader: global.FileReader
+// }
+
+
+const Tab = createBottomTabNavigator<BottomTabParamList>();
+const Stack = createStackNavigator<RootStackParamList>();
+
+
+
+const Tabs = () => {
+  return(
+      <Tab.Navigator
+        screenOptions={{
+          headerShown: false
+        }}
+      >
+        <Tab.Screen name="HomeScreen" component={HomeScreen} />
+        <Tab.Screen name="ProfileScreen" component={ProfileScreen} />
+      </Tab.Navigator>
+  )
 }
 
 const SCREENS = {
@@ -31,24 +53,20 @@ const SCREENS = {
       title: 'SplashScreen',
       component: SplashScreen,
     },
-    HomeScreen: {
-      title: 'HomeScreen',
-      component: HomeScreen
-    },
     LoginScreen: {
       title: 'LoginScreen',
       component: LoginScreen
+    },
+    BottomTab: {
+      title: 'BottomTab',
+      component: Tabs
     }
 }
 
-
-
-
-const Stack = createStackNavigator<RootStackParamList>();
 function MyStack() {
     return (
       <Stack.Navigator 
-        initialRouteName="LoginScreen"
+        initialRouteName="BottomTab"
         screenOptions={{
           headerShown: false,
           cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
@@ -78,7 +96,9 @@ export default function Router() {
         onStateChange={onStateChange}
       >
           <SafeAreaProvider>
-              <MyStack/>
+            <>
+            <MyStack/>
+              </>
           </SafeAreaProvider>
       </NavigationContainer>
     </Provider>

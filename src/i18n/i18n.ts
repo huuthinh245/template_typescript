@@ -20,3 +20,8 @@ type RecursiveKeyOf<TObj extends Record<string, any>> = {
     ? `${TKey}` | `${TKey}.${RecursiveKeyOf<TObj[TKey]>}`
     : `${TKey}`
 }[keyof TObj & string]
+
+export const switchLanguage = (locale: 'vn' | 'en' ) => {
+
+  i18n.locale = locale
+}
