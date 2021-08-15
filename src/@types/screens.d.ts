@@ -5,8 +5,8 @@ declare module "screens" {
     import { BottomTabScreenProps } from "@react-navigation/bottom-tabs";
     type RootStackParamList = {
         SplashScreen: undefined;
-        LoginScreen: undefined;
-        BottomTab: undefined
+        LoginScreen: { id:  string};
+        BottomTab: { user:  string}
     };
     type BottomTabParamList = {
         HomeScreen: undefined;

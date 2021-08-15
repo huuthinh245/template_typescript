@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { NavigationContainerRef, ParamListBase } from '@react-navigation/native';
 import { RootStackParamList } from 'screens';
-export const navigationRef = React.createRef<NavigationContainerRef>();
+export const navigationRef = React.createRef<NavigationContainerRef<RootStackParamList>>();
   /**
      * Navigate to a route in current navigation tree.
      *
@@ -11,11 +11,12 @@ export const navigationRef = React.createRef<NavigationContainerRef>();
 
 const  navigate = <T extends keyof RootStackParamList, P extends RootStackParamList[T]>(
     routeName: T,
-    params?: P,
+    params?: P | undefined,
     callback?:() => void )  => {
     if(callback) callback()
-    navigationRef.current?.navigate(routeName, params)
+    navigationRef.current?.navigate(routeName as keyof RootStackParamList, params)
 };
+
 
 export default {
     navigate
