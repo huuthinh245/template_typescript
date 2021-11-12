@@ -1,8 +1,8 @@
 apply plugin: "com.android.application"
 
 project.ext.envConfigFiles = [
-        // release: ".env.production",
-        // debug: ".env",
+//         release: ".env.production",
+//         debug: ".env",
         productionRelease: ".env.production",
         productionDebug: ".env.production",
         stagingRelease: ".env.staging",
@@ -89,7 +89,7 @@ import com.android.build.OutputFile
  */
 
 project.ext.react = [
-    enableHermes: false,  // clean and rebuild if changing
+    enableHermes: true,  // clean and rebuild if changing
 ]
 
 apply from: "../../node_modules/react-native/react.gradle"
@@ -142,7 +142,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.mpds"
+        applicationId project.env.get("APP_ID")
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
@@ -183,12 +183,14 @@ android {
             applicationId 'com.mpds'
             targetSdkVersion rootProject.ext.targetSdkVersion
             resValue "string", "build_config_package", "com.mpds"
+            resValue "string", "app_name", "GHN Driver"
         }
         staging {
             minSdkVersion rootProject.ext.minSdkVersion
-            applicationId 'com.mpds'
+            applicationId 'com.mpds.staging'
             targetSdkVersion rootProject.ext.targetSdkVersion
             resValue "string", "build_config_package", "com.mpds"
+            resValue "string", "app_name", "Staging"
         }
     }
 

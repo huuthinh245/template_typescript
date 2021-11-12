@@ -1,7 +1,14 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { Text, TouchableOpacity, View, NativeModules } from 'react-native';
+import { Text, TouchableOpacity, View, NativeModules, Button } from 'react-native';
 import DeviceInfo from 'react-native-device-info';
 import { WebView, WebViewNavigation } from 'react-native-webview';
+import Animated, {
+    withTiming,
+    withDelay,
+    useAnimatedStyle,
+    useSharedValue,
+    withSpring
+  } from 'react-native-reanimated';
 import { useDispatch, useSelector } from 'react-redux';
 import { LoginScreenParam } from 'screens';
 import { actions } from '../../stores/Authentication';
@@ -12,6 +19,7 @@ import ShareVariables from '../../utils/ShareVariables';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Config from 'react-native-config';
 import ActionSheet from '../../components/actionsheet'
+import { ScrollView } from 'react-native-gesture-handler';
 const deviceId = DeviceInfo ? DeviceInfo.getUniqueId() : '1E7BDB3E-02BF-44EA-AADA-00A3A6A1B69A' 
 
 const evn = Config.EVN;
@@ -23,17 +31,19 @@ const LoginScreen : React.FC<Props> = (props) => {
     const isLogined = useRef(false);
     const actionSheet = useRef<ActionSheet>(null);
     const { auth } = useSelector((state: IRootState) => state)
-
+    const shareValue = useSharedValue(0)
 
     useEffect(() => {
         if(auth.token) {
             instance.defaults.headers.common['X-Auth'] = 'Bearer ' + auth.token;
             instance.defaults.headers.common['X-WarehouseId'] = auth.hubId
             ShareVariables.getInstance().setDriverId(auth.ssoId);
-            props.navigation.navigate("HomeScreen", { id: "10"})
+            // props.navigation.navigate("HomeScreen", { id: "10"})
         }
     },[auth])
-
+    useEffect(() => {
+        console.log('render')
+    },[props.navigation])
     const check = async () => {
         try {
            NativeModules.Test.addEvent("dwqwq", "212", 1);
@@ -70,15 +80,21 @@ const LoginScreen : React.FC<Props> = (props) => {
     const showActionSheet = () => {
         actionSheet.current?.show()
     }
+
+    const style = useAnimatedStyle(() => {
+        return {
+            height: withTiming(shareValue.value)
+        }
+    })
     return(
         <SafeAreaView style={{ flex: 1, backgroundColor: "#ffffff"}}>
-            <View style={{ flex: 1, height: 300, flexDirection: 'row', flexWrap: 'wrap'}}>
-
+            <Animated.View style={[style,{ width:100, backgroundColor: 'red'}]}>
                 {/* <TouchableOpacity onPress={showActionSheet}>
                     <Text>check</Text>
                     <Text>{evn}</Text>
                 </TouchableOpacity> */}
-                <ActionSheet
+
+                {/* <ActionSheet
                     ref={actionSheet}
                     title={'Which one do you like ?'}
                     options={['Apple', 'Banana', 'cancel']}
@@ -86,7 +102,7 @@ const LoginScreen : React.FC<Props> = (props) => {
                     destructiveButtonIndex={1}
                     onPress= {(index: number) => {}}
                   
-                />
+                /> */}
                     {/* <WebView
                         source={{ uri: logoutUrl, 
                         headers: {
@@ -97,7 +113,14 @@ const LoginScreen : React.FC<Props> = (props) => {
                         onMessage={_onMessage.bind(this)}
                         scrollEnabled = {true}
                     /> */}
-            </View>
+            </Animated.View>
+            <Button
+                title="set height"
+                onPress={() => {
+                    // shareValue.value = shareValue.value ==0 ? 100 : 0
+                    props.navigation.navigate("BottomTab", { user: ""})
+                }}
+            />
         </SafeAreaView>
     )
 }

@@ -39,7 +39,8 @@ const Tabs = () => {
   return(
       <Tab.Navigator
         screenOptions={{
-          headerShown: false
+          headerShown: false,
+          lazy: true,
         }}
       >
         <Tab.Screen name="HomeScreen" component={HomeScreen} />
@@ -66,7 +67,7 @@ const SCREENS = {
 function MyStack() {
     return (
       <Stack.Navigator 
-        initialRouteName="BottomTab"
+        initialRouteName="LoginScreen"
         screenOptions={{
           headerShown: false,
           cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,

@@ -1,5 +1,5 @@
 
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, memo } from 'react'
 import { useSelector } from 'react-redux'
 import {  TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -10,7 +10,7 @@ import { Text } from '../../components'
 type Props = ProfileScreenPram & {
 
 }
-const SplashScreen : React.FC<Props> = (props) => {
+const ProfileScreen : React.FC<Props> = memo((props) => {
 
     return(
         <SafeAreaView style={{ flex: 1}}>
@@ -33,6 +33,6 @@ const SplashScreen : React.FC<Props> = (props) => {
             </View>
          </SafeAreaView>
     )
-}
+})
 
-export default SplashScreen;
+export default ProfileScreen;

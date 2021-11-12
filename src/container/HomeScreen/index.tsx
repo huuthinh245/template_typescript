@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, memo } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import {  View,TouchableOpacity, FlatList, StyleSheet, Alert, NativeModules } from 'react-native';
 import SwipeOut from '../../components/swipeout';
@@ -12,7 +12,7 @@ type Props  = HomeScreenParam & {
     
 }
 
-const HomeScreen : React.FC<Props> = (props) => {
+const HomeScreen : React.FC<Props> = memo((props) => {
     const dispatch = useDispatch();
     const  user = useSelector((state: IRootState) => state.auth)
     const [isDual, setDual] = useStateSafe<boolean>(false)
@@ -126,7 +126,7 @@ const HomeScreen : React.FC<Props> = (props) => {
             </SwipeOut>
         </View>
     )
-}
+})
 
 
 
