@@ -179,16 +179,12 @@ android {
 
     productFlavors {
         production {
-            minSdkVersion rootProject.ext.minSdkVersion
-            applicationId 'com.mpds'
-            targetSdkVersion rootProject.ext.targetSdkVersion
+            applicationIdSuffix ''
             resValue "string", "build_config_package", "com.mpds"
             resValue "string", "app_name", "GHN Driver"
         }
         staging {
-            minSdkVersion rootProject.ext.minSdkVersion
-            applicationId 'com.mpds.staging'
-            targetSdkVersion rootProject.ext.targetSdkVersion
+            applicationIdSuffix '.staging'
             resValue "string", "build_config_package", "com.mpds"
             resValue "string", "app_name", "Staging"
         }

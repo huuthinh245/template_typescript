@@ -6,7 +6,7 @@
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
-    "debug-stg": "npx react-native run-android --variant=stagingDebug",
+    "debug-stg": "npx react-native run-android --variant=stagingDebug --appIdSuffix=staging",
     "debug-window-stg": "npx react-native run-android --variant=stagingDebug",
     "debug-prd": "npx react-native run-android --variant=productionDebug",
     "debug-window-prd": "SET ENVFILE=.env.production && npx react-native run-android --variant=productionDebug",
