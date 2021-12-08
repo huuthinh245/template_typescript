@@ -29,6 +29,7 @@ export interface TripSuccess {
 }
 
 export interface TripCancel {
-    type: TripType.cancel
+    type: TripType.cancel,
+    payload: any
 }
 export type TripAction   =  TripStart | TripSuccess | TripError | TripCancel

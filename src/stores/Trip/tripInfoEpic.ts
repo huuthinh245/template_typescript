@@ -6,11 +6,11 @@ import _ from 'lodash';
 
 import { actions } from './actions';
 import GHNAPI from './api';
-import { TripStart, TripType } from "./types";
+import { TripStart, TripType, TripCancel } from "./types";
 
-const getTripInfoEpic= (action$: ActionsObservable<any>)=>
+const getTripInfoEpic= (action$: ActionsObservable<TripStart | TripCancel>)=>
     action$.pipe(
-        ofType<TripStart>(TripType.start),
+        ofType(TripType.start, TripType.cancel),
         map(action => action.payload),
         mergeMap(({ cancel}) => {
             return GHNAPI.getTripInfoApi(cancel).pipe(
