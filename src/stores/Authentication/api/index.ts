@@ -8,8 +8,8 @@ const loginApi = (authorcode: string) => {
       }
     const config = {
         headers: {
-          "X-Auth": "Basic TE9HSU5fT05fRlJPTlRFTkQ6QUpISEV1UVBLTnQ0YVJaRDNadmNqNXFDcjFObmpjRE4=",
-          "Authorization": "Basic RFJJVkVSX01QRFNfU0VDUkVUS0VZOnQ1aHZ6WWxXMG1pekZLMEZjQzRUUHNyNEthTFVuQWIy"
+          "X-Auth": "ggg",
+          "Authorization": "ggg"
         },
         
     }
