@@ -19,7 +19,7 @@ import ShareVariables from '../../utils/ShareVariables';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Config from 'react-native-config';
 import ActionSheet from '../../components/actionsheet'
-import { ScrollView } from 'react-native-gesture-handler';
+import Carousel from '../../components/carousel';
 const deviceId = DeviceInfo ? DeviceInfo.getUniqueId() : '1E7BDB3E-02BF-44EA-AADA-00A3A6A1B69A' 
 
 const evn = Config.EVN;
@@ -87,40 +87,8 @@ const LoginScreen : React.FC<Props> = (props) => {
         }
     })
     return(
-        <SafeAreaView style={{ flex: 1, backgroundColor: "#ffffff"}}>
-            <Animated.View style={[style,{ width:100, backgroundColor: 'red'}]}>
-                {/* <TouchableOpacity onPress={showActionSheet}>
-                    <Text>check</Text>
-                    <Text>{evn}</Text>
-                </TouchableOpacity> */}
-
-                {/* <ActionSheet
-                    ref={actionSheet}
-                    title={'Which one do you like ?'}
-                    options={['Apple', 'Banana', 'cancel']}
-                    cancelButtonIndex={2}
-                    destructiveButtonIndex={1}
-                    onPress= {(index: number) => {}}
-                  
-                /> */}
-                    {/* <WebView
-                        source={{ uri: logoutUrl, 
-                        headers: {
-                            "User-Agent": getUserAgent()
-                        }
-                        }}
-                        onNavigationStateChange={onNavigationStateChange}
-                        onMessage={_onMessage.bind(this)}
-                        scrollEnabled = {true}
-                    /> */}
-            </Animated.View>
-            <Button
-                title="set height"
-                onPress={() => {
-                    // shareValue.value = shareValue.value ==0 ? 100 : 0
-                    props.navigation.navigate("BottomTab", { user: ""})
-                }}
-            />
+        <SafeAreaView style={{ flex: 1, backgroundColor: "white"}}>
+            <Carousel/>
         </SafeAreaView>
     )
 }

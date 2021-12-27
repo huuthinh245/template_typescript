@@ -34,7 +34,7 @@ const setCustomTextInput = customProps => {
   TextInput.render = function render(props) {
     const oldProps = props;
     const style = StyleSheet.flatten([{}, customProps.style, props.style]);
-    const fontSize = RFValue(style.fontSize || FontSize.big);
+    const fontSize = RFValue(style.fontSize || 14);
     style.fontSize = fontSize;
     props = { ...props, style };
     try {
